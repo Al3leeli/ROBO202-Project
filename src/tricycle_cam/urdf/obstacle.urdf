@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<robot name="obstacles">
+
+  <!-- Obstacle 1 (base) - RED -->
+  <link name="obs1_link">
+    <visual>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="obs_red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0"
+               iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Obstacle 2 - BLUE -->
+  <link name="obs2_link">
+    <visual>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="obs_blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0"
+               iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Obstacle 3 - GREEN -->
+  <link name="obs3_link">
+    <visual>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="obs_green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0"
+               iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Obstacle 4 - YELLOW -->
+  <link name="obs4_link">
+    <visual>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="obs_yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0"
+               iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Obstacle 5 - PURPLE -->
+  <link name="obs5_link">
+    <visual>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="obs_purple">
+        <color rgba="0.6 0 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.3 0.7"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0"
+               iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Fixed joints to place each obstacle relative to obs1_link -->
+
+
+  <joint name="obs1_to_obs2" type="fixed">
+    <parent link="obs1_link"/>
+    <child link="obs2_link"/>
+    <origin xyz="1.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+
+  <joint name="obs1_to_obs3" type="fixed">
+    <parent link="obs1_link"/>
+    <child link="obs3_link"/>
+    <origin xyz="1.0 1.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+
+  <joint name="obs1_to_obs4" type="fixed">
+    <parent link="obs1_link"/>
+    <child link="obs4_link"/>
+    <origin xyz="1.0 -1.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+
+  <joint name="obs1_to_obs5" type="fixed">
+    <parent link="obs1_link"/>
+    <child link="obs5_link"/>
+    <origin xyz="2.0 0.5 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Gazebo materials (optional, to use Gazebo colors instead) -->
+  <gazebo reference="obs1_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="obs2_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="obs3_link">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="obs4_link">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="obs5_link">
+    <material>Gazebo/Purple</material>
+  </gazebo>
+
+  <!-- Make the whole obstacle group static -->
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+
+</robot>

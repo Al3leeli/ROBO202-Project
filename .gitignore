@@ -1,0 +1,16 @@
+build/
+install/
+log/
+.colcon/
+
+# python cache
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# misc
+*.swp
+.DS_Store
